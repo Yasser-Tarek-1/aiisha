@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Css -->
+    <link href="./css/style.css" rel="stylesheet" />
+    <title>Aiisha</title>
+  </head>
+
+  <body>
+    <div id="root">
+      <!-- modal -->
+      <div
+        id="modal"
+        class="fixed top-0 bg-[#e7fffd] z-50 w-3/4 h-full px-4 py-[18px] hide md:hidden"
+      >
+        <div id="close">
+          <img src="./assets/close.svg" alt="close" class="w-6" />
+        </div>
+        <ul
+          id="list"
+          class="flex flex-col w-full items-center justify-between font-bold text-green gap-5 py-4"
+        >
+          <li><a href="/index.html#home" class="">الرئيسـية</a></li>
+          <li><a href="/index.html#gift">هديتي لك</a></li>
+          <li><a href="/index.html#sessions">الجلسـات</a></li>
+          <li><a href="/index.html#courses">الكورسـات</a></li>
+          <li><a href="/index.html#reflections">التأملات</a></li>
+          <li><a href="/index.html#retreat">الرحلات</a></li>
+          <li><a href="/index.html#about">عن عائشـة رمضان</a></li>
+          <li><a href="/index.html#contact">تواصل معنا</a></li>
+        </ul>
+        <div class="mt-10">
+          <!-- <img
+            src="./assets/social-icons.png"
+            alt="social-icons"
+            class="w-2/3 mx-auto"
+          /> -->
+          <div class="flex gap-5 items-center justify-center">
+            <a href="#">
+              <img src="./assets/youtube.svg" alt="youtube" class="w-7" />
+            </a>
+            <a href="https://www.instagram.com/aiisharamadan/" target="_blank">
+              <img
+                src="./assets/instagram.svg"
+                alt="instagram"
+                class="w-7" /></a
+            ><a href="#">
+              <img src="./assets/facebook.svg" alt="facebook" class="w-7" />
+            </a>
+            <a href="#">
+              <img src="./assets/twitter.svg" alt="twitter" class="w-7" />
+            </a>
+            <a href="#">
+              <img src="./assets/mic.svg" alt="mic" class="w-6"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <!-- overlay -->
+      <div
+        id="overlay"
+        class="fixed left-0 top-0 w-full h-full z-40 bg-black opacity-30 overlay-hide md:hidden"
+      ></div>
+      <!-- header -->
+      <header class="w-full bg-[#f1fdfb] min-h-[64px] flex items-center px-4">
+        <div class="md:px-12 mx-auto w-full">
+          <div class="flex justify-between items-center">
+            <div class="hidden md:block w-[220px]">
+              <div class="flex gap-5 items-center">
+                <a href="#">
+                  <img src="./assets/youtube.svg" alt="youtube" class="w-6" />
+                </a>
+                <a
+                  href="https://www.instagram.com/aiisharamadan/"
+                  target="_blank"
+                >
+                  <img
+                    src="./assets/instagram.svg"
+                    alt="instagram"
+                    class="w-6" /></a
+                ><a href="#">
+                  <img src="./assets/facebook.svg" alt="facebook" class="w-6" />
+                </a>
+                <a href="#">
+                  <img src="./assets/twitter.svg" alt="twitter" class="w-6" />
+                </a>
+                <a href="#">
+                  <img src="./assets/mic.svg" alt="mic" class="w-5"
+                /></a>
+              </div>
+            </div>
+            <div id="menu" class="cursor-pointer block md:hidden">
+              <img src="./assets/menu.svg" alt="menu" class="w-6" />
+            </div>
+            <a class="block" href="/index.html">
+              <img src="./assets/logo.png" alt="cart" class="w-14 md:w-20" />
+            </a>
+            <div class="flex items-center justify-between gap-5 relative">
+              <button
+                id="langBtn"
+                class="flex bg-green items-center rounded-2xl px-3 p-1 justify-between cursor-pointer"
+              >
+                <p class="text-white text-sm ml-1 relative bottom-[3px]">
+                  عربي
+                </p>
+                <img
+                  id="langArrow"
+                  src="./assets/arrow-down.svg"
+                  alt="arrow-down"
+                  class="w-3 transition-all"
+                />
+              </button>
+              <div
+                id="langDropdown"
+                class="absolute z-50 bg-[#f1fdfb] right-0 bottom-[-110px] ltr:right-auto ltr:left-0 rounded-lg w-32 hidden transition-all border-2 border-green"
+              >
+                <ul class="py-2 text-sm text-green">
+                  <li class="langLi">
+                    <a href="#" class="block px-3 py-2 hover:bg-[#b3dad5]"
+                      >عربي</a
+                    >
+                  </li>
+                  <li class="langLi">
+                    <a href="#" class="block px-3 py-2 hover:bg-[#b3dad5]"
+                      >English</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="rounded-2xl relative">
+                <button id="searchBtn" class="w-full flex items-center">
+                  <img src="./assets/search.svg" alt="search" class="w-5" />
+                  <p class="text-base mr-1 relative bottom-[1px] text-green">
+                    البحث
+                  </p>
+                </button>
+                <div
+                  id="searchDropdown"
+                  class="absolute z-50 left-0 ltr:left-auto ltr:right-0 rounded-lg w-48 transition-all shadow-lg border-2 border-green bottom-[-53px] hidden"
+                >
+                  <div
+                    class="bg-[#f1fdfb] w-full h-full rounded-lg flex items-center px-2 py-1"
+                  >
+                    <input
+                      type="text"
+                      class="bg-[#f1fdfb] outline-none text-gray-normal text-sm"
+                      placeholder="بحث"
+                    />
+                    <button class="w-5 mx-auto" id="searchItemBtn">
+                      <img src="./assets/search.svg" class="w-full mx-auto" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center rounded-2xl relative cursor-pointer"
+              >
+                <a class="w-full" href="/cart.html">
+                  <img src="./assets/cart.png" alt="cart" class="w-6" />
+                  <span
+                    class="absolute bg-[#ffd760] rounded-full w-[18px] h-[18px] text-xs font-bold top-[-5px] right-[-7px] flex justify-center"
+                    >3</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- cart -->
+      <section class="w-full h-full py-14">
+        <div class="container mx-auto px-4">
+          <h3 class="text-3xl font-bold text-gray-bold">عربة التسوق</h3>
+          <div
+            class="flex items-start justify-between flex-col lg:flex-row mt-12 lg:gap-20 lg2:gap-40"
+          >
+            <!-- if cart empty -->
+            <!-- <div class="flex-1 w-full">
+            <a href="/courses.html" class="w-80 sm:w-[450px] flex items-center flex-col mx-auto justify-center">
+              <img src="./assets/empty-cart.svg" alt="cart" class="w-full svg-green" />
+              <span class="text-gray-bold text-xl sm:text-2xl relative left-4 sm:left-6 font-bold">عربة التسوق
+                فارغة </span>
+            </a>
+          </div> -->
+            <!-- cart content -->
+            <div class="flex-1 w-full">
+              <div class="flex items-center justify-between">
+                <h3 class="font-bold text-gray-normal">
+                  <span>3</span> دورات في عربة التسوق
+                </h3>
+                <button
+                  class="w-fit bg-green hover:bg-green-hover transition-all text-white p-2 shadow rounded-lg"
+                >
+                  حذف الكل
+                </button>
+              </div>
+              <div class="flex items-center flex-col mt-5">
+                <!-- cart item -->
+                <div
+                  class="flex items-start border-t border-gray-300 py-4 justify-between w-full"
+                >
+                  <a href="#" class="w-full block">
+                    <div class="flex items-start gap-4 w-fit">
+                      <img src="./assets/course.jpg" class="w-20 sm:w-24" />
+                      <div class="flex flex-col gap-2">
+                        <h3
+                          class="custom-ellipsis-line text-xl font-bold tracking-tight text-gray-bold"
+                        >
+                          كورس تنمية بشرية
+                        </h3>
+                        <div class="flex items-center gap-1">
+                          <img src="./assets/stars.svg" alt="" class="w-20" />
+                          <span class="font-normal text-gray-normal">4.5</span>
+                          <span class="font-normal text-gray-normal"
+                            >( 732 تقيم )</span
+                          >
+                        </div>
+                        <div class="flex items-center text-sm gap-4">
+                          <p class="font-normal text-gray-normal">
+                            جميع المستويات
+                          </p>
+                          <p class="font-normal text-gray-normal">36 محاضرة</p>
+                          <p class="font-normal text-gray-normal">120 دقيقة</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <button class="">
+                    <img src="./assets/close.svg" alt="close" class="w-6" />
+                  </button>
+                </div>
+                <!-- cart item -->
+                <div
+                  class="flex items-start border-t border-gray-300 py-4 justify-between w-full"
+                >
+                  <a href="#" class="w-full block">
+                    <div class="flex items-start gap-4 w-fit">
+                      <img src="./assets/course.jpg" class="w-20 sm:w-24" />
+                      <div class="flex flex-col gap-2">
+                        <h3
+                          class="custom-ellipsis-line text-xl font-bold tracking-tight text-gray-bold"
+                        >
+                          كورس تنمية بشرية
+                        </h3>
+                        <div class="flex items-center gap-1">
+                          <img src="./assets/stars.svg" alt="" class="w-20" />
+                          <span class="font-normal text-gray-normal">4.5</span>
+                          <span class="font-normal text-gray-normal"
+                            >( 732 تقيم )</span
+                          >
+                        </div>
+                        <div class="flex items-center text-sm gap-4">
+                          <p class="font-normal text-gray-normal">
+                            جميع المستويات
+                          </p>
+                          <p class="font-normal text-gray-normal">36 محاضرة</p>
+                          <p class="font-normal text-gray-normal">120 دقيقة</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <button class="">
+                    <img src="./assets/close.svg" alt="close" class="w-6" />
+                  </button>
+                </div>
+                <!-- cart item -->
+                <div
+                  class="flex items-start border-t border-gray-300 py-4 justify-between w-full"
+                >
+                  <a href="#" class="w-full block">
+                    <div class="flex items-start gap-4 w-fit">
+                      <img src="./assets/course.jpg" class="w-20 sm:w-24" />
+                      <div class="flex flex-col gap-2">
+                        <h3
+                          class="custom-ellipsis-line text-xl font-bold tracking-tight text-gray-bold"
+                        >
+                          كورس تنمية بشرية
+                        </h3>
+                        <div class="flex items-center gap-1">
+                          <img src="./assets/stars.svg" alt="" class="w-20" />
+                          <span class="font-normal text-gray-normal">4.5</span>
+                          <span class="font-normal text-gray-normal"
+                            >( 732 تقيم )</span
+                          >
+                        </div>
+                        <div class="flex items-center text-sm gap-4">
+                          <p class="font-normal text-gray-normal">
+                            جميع المستويات
+                          </p>
+                          <p class="font-normal text-gray-normal">36 محاضرة</p>
+                          <p class="font-normal text-gray-normal">120 دقيقة</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <button class="">
+                    <img src="./assets/close.svg" alt="close" class="w-6" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- cart total price -->
+            <div class="mx-auto mt-10 lg:mt-0">
+              <h3 class="font-bold text-gray-bold text-sm">المجموع:</h3>
+              <div class="flex gap-4 flex-col my-5">
+                <div class="flex items-center gap-32 justify-between">
+                  <p class="text-lg font-bold text-gray-bold">الإجمالي</p>
+                  <p class="text-2xl font-bold text-green">
+                    <span>E£</span>1,949.97
+                  </p>
+                </div>
+                <div class="flex items-center gap-32 justify-between">
+                  <p class="text-lg font-bold text-gray-bold">اجمالى الخصم</p>
+                  <p class="text-2xl font-bold text-green"><span>E£</span>0</p>
+                </div>
+                <div class="flex items-center gap-32 justify-between">
+                  <p class="text-lg font-bold text-gray-bold">
+                    الإجمالي بعد الخصم
+                  </p>
+                  <p class="text-2xl font-bold text-green">
+                    <span>E£</span>1,949.97
+                  </p>
+                </div>
+                <hr class="w-full text-gray-300" />
+                <div>
+                  <p class="text-sm mb-1 text-gray-normal">
+                    تم تطبيق كود
+                    <span class="text-green font-bold">7sqrmz</span> بنجاح
+                  </p>
+                  <div
+                    class="flex items-center gap-0 border border-gray-300 shadow rounded-lg"
+                  >
+                    <input
+                      type="text"
+                      class="bg-gray-50 text-gray-bold text-sm block w-full p-2.5 outline-none rounded-lg"
+                      placeholder="كود الخصم"
+                      value="7sqrmz"
+                    /><button
+                      class="w-1/3 bg-green hover:bg-green-hover transition-all text-white py-2 border rounded-lg"
+                    >
+                      تطبيق
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="w-full bg-green hover:bg-green-hover transition-all text-white py-2 shadow rounded-lg"
+              >
+                ادفع الأن
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- footer -->
+      <footer
+        class="w-full px-4 py-6 mx-auto text-center relative h-full flex flex-col bg-[#517a74] text-white"
+      >
+        <div class="max-w-[1440px] mx-auto w-full">
+          <ul
+            id="list"
+            class="flex flex-wrap w-full items-center gap-4 sm:gap-7 justify-center font-bold text-white py-4 text-sm"
+          >
+            <li><a href="/index.html#home">الرئيسـية</a></li>
+            <li><a href="/index.html#gift">هديتي لك</a></li>
+            <li><a href="/index.html#sessions">الجلسـات</a></li>
+            <li><a href="/index.html#courses">الكورسـات</a></li>
+            <li><a href="/index.html#reflections">التأملات</a></li>
+            <li><a href="/index.html#retreat">الرحلات</a></li>
+            <li><a href="/index.html#about">عن عائشـة رمضان</a></li>
+            <li><a href="/index.html#contact">تواصل معنا</a></li>
+          </ul>
+          <div
+            class="flex flex-wrap items-center gap-3 sm:gap-6 justify-between pt-6 pb-10"
+          >
+            <div class="text-white text-sm flex flex-col flex-1 items-center">
+              <p class="font-bold">عربي</p>
+              <p class="uppercase font-[200] mt-1">English</p>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center text-sm gap-2 flex-1"
+            >
+              <img
+                src="./assets/logo.png"
+                alt="cart"
+                class="w-20 sm:w-24 mx-auto"
+              />
+              <a href="tel:00971542466474" class="text-white text-sm font-[200]"
+                >00971542466474</a
+              >
+              <a
+                href="mailto:bookings@aiisha.com"
+                class="text-white text-sm font-[200]"
+                >bookings@aiisha.com</a
+              >
+            </div>
+            <div class="flex flex-col gap-2 items-center flex-1">
+              <p class="text-white font-semibold text-sm self-center">
+                تابعونا
+              </p>
+              <!-- <img
+                src="./assets/social-icons.png"
+                alt="social-icons"
+                class="w-56"
+              /> -->
+              <div class="flex gap-2 sm:gap-5 items-center justify-center">
+                <a href="#">
+                  <img
+                    src="./assets/youtube-white.svg"
+                    alt="youtube"
+                    class="w-6"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/aiisharamadan/"
+                  target="_blank"
+                >
+                  <img
+                    src="./assets/instagram-white.svg"
+                    alt="instagram"
+                    class="w-6" /></a
+                ><a href="#">
+                  <img
+                    src="./assets/facebook-white.svg"
+                    alt="facebook"
+                    class="w-6"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    src="./assets/twitter-white.svg"
+                    alt="twitter"
+                    class="w-6"
+                  />
+                </a>
+                <a href="#">
+                  <img src="./assets/mic-white.svg" alt="mic" class="w-5"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <p class="text-white text-sm font-[200]">
+            2023 جميع الحقوق © محفوظة لدى شركه
+            <a
+              href="https://www.itlegend.net/"
+              target="_blank"
+              class="font-semibold mx-1"
+              >IT LEGEND</a
+            >
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

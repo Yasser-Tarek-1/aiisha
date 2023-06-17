@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Css -->
+    <link href="./css/style.css" rel="stylesheet" />
+    <title>Aiisha</title>
+  </head>
+
+  <body>
+    <div id="root">
+      <!-- modal -->
+      <div
+        id="modal"
+        class="fixed top-0 bg-[#e7fffd] z-50 w-3/4 h-full px-4 py-[18px] hide md:hidden"
+      >
+        <div id="close">
+          <img src="./assets/close.svg" alt="close" class="w-6" />
+        </div>
+        <ul
+          id="list"
+          class="flex flex-col w-full items-center justify-between font-bold text-green gap-5 py-4"
+        >
+          <li><a href="/index.html#home" class="">الرئيسـية</a></li>
+          <li><a href="/index.html#gift">هديتي لك</a></li>
+          <li><a href="/index.html#sessions">الجلسـات</a></li>
+          <li><a href="/index.html#courses">الكورسـات</a></li>
+          <li><a href="/index.html#reflections">التأملات</a></li>
+          <li><a href="/index.html#retreat">الرحلات</a></li>
+          <li><a href="/index.html#about">عن عائشـة رمضان</a></li>
+          <li><a href="/index.html#contact">تواصل معنا</a></li>
+        </ul>
+        <div class="mt-10">
+          <!-- <img
+            src="./assets/social-icons.png"
+            alt="social-icons"
+            class="w-2/3 mx-auto"
+          /> -->
+          <div class="flex gap-5 items-center justify-center">
+            <a href="#">
+              <img src="./assets/youtube.svg" alt="youtube" class="w-7" />
+            </a>
+            <a href="https://www.instagram.com/aiisharamadan/" target="_blank">
+              <img
+                src="./assets/instagram.svg"
+                alt="instagram"
+                class="w-7" /></a
+            ><a href="#">
+              <img src="./assets/facebook.svg" alt="facebook" class="w-7" />
+            </a>
+            <a href="#">
+              <img src="./assets/twitter.svg" alt="twitter" class="w-7" />
+            </a>
+            <a href="#">
+              <img src="./assets/mic.svg" alt="mic" class="w-6"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <!-- overlay -->
+      <div
+        id="overlay"
+        class="fixed left-0 top-0 w-full h-full z-40 bg-black opacity-30 overlay-hide md:hidden"
+      ></div>
+      <!-- header -->
+      <header class="w-full bg-[#f1fdfb] min-h-[64px] flex items-center px-4">
+        <div class="md:px-12 mx-auto w-full">
+          <div class="flex justify-between items-center">
+            <div class="hidden md:block w-[220px]">
+              <div class="flex gap-5 items-center">
+                <a href="#">
+                  <img src="./assets/youtube.svg" alt="youtube" class="w-6" />
+                </a>
+                <a
+                  href="https://www.instagram.com/aiisharamadan/"
+                  target="_blank"
+                >
+                  <img
+                    src="./assets/instagram.svg"
+                    alt="instagram"
+                    class="w-6" /></a
+                ><a href="#">
+                  <img src="./assets/facebook.svg" alt="facebook" class="w-6" />
+                </a>
+                <a href="#">
+                  <img src="./assets/twitter.svg" alt="twitter" class="w-6" />
+                </a>
+                <a href="#">
+                  <img src="./assets/mic.svg" alt="mic" class="w-5"
+                /></a>
+              </div>
+            </div>
+            <div id="menu" class="cursor-pointer block md:hidden">
+              <img src="./assets/menu.svg" alt="menu" class="w-6" />
+            </div>
+            <a class="block" href="/index.html">
+              <img src="./assets/logo.png" alt="cart" class="w-14 md:w-20" />
+            </a>
+            <div class="flex items-center justify-between gap-5 relative">
+              <button
+                id="langBtn"
+                class="flex bg-green items-center rounded-2xl px-3 p-1 justify-between cursor-pointer"
+              >
+                <p class="text-white text-sm ml-1 relative bottom-[3px]">
+                  عربي
+                </p>
+                <img
+                  id="langArrow"
+                  src="./assets/arrow-down.svg"
+                  alt="arrow-down"
+                  class="w-3 transition-all"
+                />
+              </button>
+              <div
+                id="langDropdown"
+                class="absolute z-50 bg-[#f1fdfb] right-0 bottom-[-110px] ltr:right-auto ltr:left-0 rounded-lg w-32 hidden transition-all border-2 border-green"
+              >
+                <ul class="py-2 text-sm text-green">
+                  <li class="langLi">
+                    <a href="#" class="block px-3 py-2 hover:bg-[#b3dad5]"
+                      >عربي</a
+                    >
+                  </li>
+                  <li class="langLi">
+                    <a href="#" class="block px-3 py-2 hover:bg-[#b3dad5]"
+                      >English</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="rounded-2xl relative">
+                <button id="searchBtn" class="w-full flex items-center">
+                  <img src="./assets/search.svg" alt="search" class="w-5" />
+                  <p class="text-base mr-1 relative bottom-[1px] text-green">
+                    البحث
+                  </p>
+                </button>
+                <div
+                  id="searchDropdown"
+                  class="absolute z-50 left-0 ltr:left-auto ltr:right-0 rounded-lg w-48 transition-all shadow-lg border-2 border-green bottom-[-53px] hidden"
+                >
+                  <div
+                    class="bg-[#f1fdfb] w-full h-full rounded-lg flex items-center px-2 py-1"
+                  >
+                    <input
+                      type="text"
+                      class="bg-[#f1fdfb] outline-none text-gray-normal text-sm"
+                      placeholder="بحث"
+                    />
+                    <button class="w-5 mx-auto" id="searchItemBtn">
+                      <img src="./assets/search.svg" class="w-full mx-auto" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center rounded-2xl relative cursor-pointer"
+              >
+                <a class="w-full" href="/cart.html">
+                  <img src="./assets/cart.png" alt="cart" class="w-6" />
+                  <span
+                    class="absolute bg-[#ffd760] rounded-full w-[18px] h-[18px] text-xs font-bold top-[-5px] right-[-7px] flex justify-center"
+                    >3</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- profile -->
+      <section class="w-full h-full min-h-screen">
+        <div class="w-full h-full aside-grid gap-1 min-h-screen">
+          <!-- aside for large screens -->
+          <aside
+            class="hidden md:block w-64 min-h-screen h-full bg-gradient-to-t from-[#517a74] to-[#f1fdfb] self-stretch"
+          >
+            <div class="h-full px-3 py-4 overflow-y-auto">
+              <ul class="font-medium pt-10">
+                <li class="my-1">
+                  <a
+                    href="myCourses.html"
+                    class="w-full flex items-center p-2 gap-2 text-green transition duration-75 hover:bg-[#47afa152] hover:border-l-2 hover:border-l-green group li-group-profile"
+                  >
+                    <img
+                      src="./assets/my-courses.svg"
+                      alt=""
+                      class="w-5 transition duration-75"
+                    />
+                    <span class="text-lg transition duration-75">دوراتي</span>
+                  </a>
+                </li>
+                <li class="my-1">
+                  <a
+                    href="myBills.html"
+                    class="w-full flex items-center p-2 gap-2 text-green transition duration-75 hover:bg-[#47afa152] hover:border-l-2 hover:border-l-green group li-group-profile"
+                  >
+                    <img
+                      src="./assets/bills.svg"
+                      alt=""
+                      class="w-5 transition duration-75"
+                    />
+                    <span class="text-lg transition duration-75">فواتيري</span>
+                  </a>
+                </li>
+                <hr class="text-green my-4" />
+                <li class="my-1">
+                  <a
+                    href="settings.html"
+                    class="profile-active w-full flex items-center p-2 gap-2 text-green transition duration-75 hover:bg-[#47afa152] hover:border-l-2 hover:border-l-green group li-group-profile"
+                  >
+                    <img
+                      src="./assets/settings.svg"
+                      alt=""
+                      class="w-5 transition duration-75"
+                    />
+                    <span class="text-lg transition duration-75"
+                      >الأعدادات</span
+                    >
+                  </a>
+                </li>
+                <li class="my-1">
+                  <button
+                    class="w-full flex items-center p-2 gap-2 text-green transition duration-75 hover:bg-[#47afa152] hover:border-l-2 hover:border-l-green group li-group-profile"
+                  >
+                    <img
+                      src="./assets/logout.svg"
+                      alt=""
+                      class="w-5 transition duration-75"
+                    />
+                    <span class="text-lg transition duration-75"
+                      >تسجيل الخروج</span
+                    >
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </aside>
+          <!-- aside for mobile -->
+          <div class="md:hidden p-4 w-full flex items-center justify-between">
+            <button>
+              <a href="myCourses.html" class="flex flex-col items-center">
+                <img src="./assets/my-courses.svg" alt="" class="w-6" />
+                <span class="text-[12px] text-green font-bold">دوراتي</span>
+              </a>
+            </button>
+            <button>
+              <a href="myBills.html" class="flex flex-col items-center">
+                <img src="./assets/bills.svg" alt="" class="w-6" />
+                <span class="text-[12px] text-green font-bold">فواتيري</span>
+              </a>
+            </button>
+            <button>
+              <a href="settings.html" class="flex flex-col items-center">
+                <img src="./assets/settings.svg" alt="" class="w-6" />
+                <span class="text-[12px] text-green font-bold">الأعدادات</span>
+              </a>
+            </button>
+            <button>
+              <a href="#" class="flex flex-col items-center">
+                <img src="./assets/logout.svg" alt="" class="w-6" />
+                <span class="text-[12px] text-green font-bold"
+                  >تسجيل الخروج</span
+                >
+              </a>
+            </button>
+          </div>
+          <!-- content => left -->
+          <div class="flex-1 px-4 md:mx-14 my-7">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl text-green font-bold">الأعدادات</h3>
+              <p class="flex items-center gap-1 text-base text-gray-normal">
+                <a href="/index.html" class="text-green font-bold">
+                  الرئيسية
+                </a>
+                /
+                <span class="text-sm">الأعدادات</span>
+              </p>
+            </div>
+            <!-- setting -->
+            <div class="w-full mt-6 sm:mt-20">
+              <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul
+                  class="flex gap-4 -mb-px text-sm font-medium text-center"
+                  id="myTabs"
+                >
+                  <li>
+                    <button
+                      data-open="email"
+                      class="sideBtn tabs-active flex text-xs sm:text-base items-center gap-2 p-4 rounded-t-lg text-green font-bold duration-75 hover:border-b-2 hover:border-green transition-all"
+                      id="emailBtn"
+                      type="button"
+                    >
+                      <img src="./assets/email.svg" class="w-5 sm:w-6" />
+                      البريد الالكتروني
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      data-open="info"
+                      class="sideBtn flex text-xs sm:text-base items-center gap-2 p-4 rounded-t-lg text-green font-bold duration-75 hover:border-b-2 hover:border-green transition-all"
+                      id="personInfoBtn"
+                      type="button"
+                    >
+                      <img src="./assets/profile.svg" class="w-5 sm:w-6" />
+                      المعلومات الشخصية
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      data-open="pass"
+                      class="sideBtn flex items-center text-xs sm:text-base gap-2 p-4 rounded-t-lg text-green font-bold duration-75 hover:border-b-2 hover:border-green transition-all"
+                      id="passwordBtn"
+                      type="button"
+                    >
+                      <img src="./assets/password.svg" class="w-5 sm:w-6" />
+                      كلمة المرور
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <div id="myTabContent">
+                <!-- Email Card -->
+                <div
+                  id="emailCard"
+                  data-open="email"
+                  class="tabsSettings w-full shadow-lg rounded-lg p-4 flex items-start flex-col gap-3"
+                >
+                  <input
+                    type="email"
+                    disabled
+                    value="admin@gmail.com"
+                    class="bg-gray-50 border border-gray-300 text-gray-bold text-sm rounded-lg f block w-full p-2.5 outline-none shadow"
+                  />
+                  <button
+                    class="w-fit bg-green hover:bg-green-hover transition-all text-white py-2 px-4 rounded-lg shadow"
+                  >
+                    ارسال كود تحقق
+                  </button>
+                  <hr class="w-full text-green my-3 sm:my-6" />
+                  <div class="w-full flex items-center gap-2">
+                    <input
+                      type="email"
+                      placeholder="كود التفعيل"
+                      class="flex-1 bg-gray-50 border border-gray-300 text-gray-bold text-sm rounded-lg f block p-2.5 outline-none shadow"
+                    />
+                    <button
+                      class="w-fit bg-green hover:bg-green-hover transition-all text-white py-2 px-4 rounded-lg shadow"
+                    >
+                      تحقيق
+                    </button>
+                  </div>
+                </div>
+                <!-- PersonInfo Card -->
+                <div
+                  id="personInfoCard"
+                  data-open="info"
+                  class="tabsSettings w-full shadow-lg rounded-lg p-4 items-start flex-col gap-3 hidden"
+                >
+                  <div class="w-full flex items-center justify-center">
+                    <img alt="avatar" src="./assets/avatar.svg" class="w-16" />
+                  </div>
+                  <div class="w-full">
+                    <label class="text-sm mb-1 text-gray-normal block"
+                      >الاسم الاول</label
+                    >
+                    <input
+                      type="text"
+                      name="register_ftname"
+                      class="bg-gray-50 border-gray-300 border text-gray-bold text-sm rounded-lg f block w-full p-2.5 outline-none shadow"
+                      value="yasser"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <label class="text-sm mb-1 text-gray-normal block">
+                      الاسم الاخير
+                    </label>
+                    <input
+                      type="text"
+                      name="register_ltname"
+                      class="bg-gray-50 border border-gray-300 text-gray-bold text-sm rounded-lg f block w-full p-2.5 outline-none shadow"
+                      value="tarek"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <label class="text-sm mb-1 text-gray-normal block">
+                      البريد الالكتروني</label
+                    >
+
+                    <input
+                      type="email"
+                      name="register_email"
+                      class="bg-gray-50 border border-gray-300 text-gray-bold text-sm rounded-lg f block w-full p-2.5 outline-none shadow"
+                      value="admin@gmail.com"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <label class="text-sm mb-1 text-gray-normal block">
+                      رقم الهاتف</label
+                    >
+                    <input
+                      id="phone"
+                      type="tel"
+                      name="register_phone"
+                      class="border-error bg-gray-50 border text-gray-bold text-sm rounded-lg f block w-full p-2.5 outline-none shadow"
+                      value="01016736277"
+                    />
+                    <p class="text-error text-[12px]">
+                      من فضلك ادخل رقم هاتف صحيح
+                    </p>
+                  </div>
+
+                  <button
+                    class="w-fit bg-green hover:bg-green-hover transition-all text-white py-2 px-4 rounded-lg shadow"
+                  >
+                    حفظ
+                  </button>
+                </div>
+                <!-- password Card -->
+                <div
+                  id="passwordCard"
+                  data-open="pass"
+                  class="tabsSettings w-full shadow-lg rounded-lg p-4 items-start flex-col gap-3 hidden"
+                >
+                  <h3 class="mb-6 text-2xl text-green font-bold">
+                    تغير كلمة المرور
+                  </h3>
+                  <div class="w-full">
+                    <!-- <label class="text-sm mb-1 text-gray-normal block"
+                      >كلمة المرور</label
+                    > -->
+                    <input
+                      type="password"
+                      name="register_ftname"
+                      placeholder="كلمة المرور"
+                      class="bg-gray-50 border-gray-300 border text-gray-bold text-sm rounded-lg f block w-full p-2.5 outline-none shadow"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <input
+                      type="password"
+                      name="register_ltname"
+                      placeholder="كلمة المرور الجديدة"
+                      class="bg-gray-50 border border-gray-300 text-gray-bold text-sm rounded-lg f block w-full p-2.5 outline-none shadow"
+                    />
+                  </div>
+                  <div class="w-full">
+                    <!-- <label class="text-sm mb-1 text-gray-normal block">
+                      تأكيد كلمة المرور</label
+                    > -->
+
+                    <input
+                      type="password"
+                      name="register_email"
+                      placeholder="تأكيد كلمة المرور"
+                      class="bg-gray-50 border border-gray-300 text-gray-bold text-sm rounded-lg f block w-full p-2.5 outline-none shadow"
+                    />
+                  </div>
+                  <button
+                    class="w-fit bg-green hover:bg-green-hover transition-all text-white py-2 px-4 rounded-lg shadow"
+                  >
+                    حفظ
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- footer -->
+      <footer
+        class="w-full px-4 py-6 mx-auto text-center relative h-full flex flex-col bg-[#517a74] text-white"
+      >
+        <div class="max-w-[1440px] mx-auto w-full">
+          <ul
+            id="list"
+            class="flex flex-wrap w-full items-center gap-4 sm:gap-7 justify-center font-bold text-white py-4 text-sm"
+          >
+            <li><a href="/index.html#home">الرئيسـية</a></li>
+            <li><a href="/index.html#gift">هديتي لك</a></li>
+            <li><a href="/index.html#sessions">الجلسـات</a></li>
+            <li><a href="/index.html#courses">الكورسـات</a></li>
+            <li><a href="/index.html#reflections">التأملات</a></li>
+            <li><a href="/index.html#retreat">الرحلات</a></li>
+            <li><a href="/index.html#about">عن عائشـة رمضان</a></li>
+            <li><a href="/index.html#contact">تواصل معنا</a></li>
+          </ul>
+          <div
+            class="flex flex-wrap items-center gap-3 sm:gap-6 justify-between pt-6 pb-10"
+          >
+            <div class="text-white text-sm flex flex-col flex-1 items-center">
+              <p class="font-bold">عربي</p>
+              <p class="uppercase font-[200] mt-1">English</p>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center text-sm gap-2 flex-1"
+            >
+              <img
+                src="./assets/logo.png"
+                alt="cart"
+                class="w-20 sm:w-24 mx-auto"
+              />
+              <a href="tel:00971542466474" class="text-white text-sm font-[200]"
+                >00971542466474</a
+              >
+              <a
+                href="mailto:bookings@aiisha.com"
+                class="text-white text-sm font-[200]"
+                >bookings@aiisha.com</a
+              >
+            </div>
+            <div class="flex flex-col gap-2 items-center flex-1">
+              <p class="text-white font-semibold text-sm self-center">
+                تابعونا
+              </p>
+              <!-- <img
+                src="./assets/social-icons.png"
+                alt="social-icons"
+                class="w-56"
+              /> -->
+              <div class="flex gap-2 sm:gap-5 items-center justify-center">
+                <a href="#">
+                  <img
+                    src="./assets/youtube-white.svg"
+                    alt="youtube"
+                    class="w-6"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/aiisharamadan/"
+                  target="_blank"
+                >
+                  <img
+                    src="./assets/instagram-white.svg"
+                    alt="instagram"
+                    class="w-6" /></a
+                ><a href="#">
+                  <img
+                    src="./assets/facebook-white.svg"
+                    alt="facebook"
+                    class="w-6"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    src="./assets/twitter-white.svg"
+                    alt="twitter"
+                    class="w-6"
+                  />
+                </a>
+                <a href="#">
+                  <img src="./assets/mic-white.svg" alt="mic" class="w-5"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <p class="text-white text-sm font-[200]">
+            2023 جميع الحقوق © محفوظة لدى شركه
+            <a
+              href="https://www.itlegend.net/"
+              target="_blank"
+              class="font-semibold mx-1"
+              >IT LEGEND</a
+            >
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <!-- Css -->
+    <link href="./css/style.css" rel="stylesheet" />
+    <title>Aiisha</title>
+  </head>
+
+  <body>
+    <div id="root">
+      <!-- modal -->
+      <div
+        id="modal"
+        class="fixed top-0 bg-[#e7fffd] z-50 w-3/4 h-full px-4 py-[18px] hide md:hidden"
+      >
+        <div id="close">
+          <img src="./assets/close.svg" alt="close" class="w-6" />
+        </div>
+        <ul
+          id="list"
+          class="flex flex-col w-full items-center justify-between font-bold text-green gap-5 py-4"
+        >
+          <li><a href="/index.html#home" class="">الرئيسـية</a></li>
+          <li><a href="/index.html#gift">هديتي لك</a></li>
+          <li><a href="/index.html#sessions">الجلسـات</a></li>
+          <li><a href="/index.html#courses">الكورسـات</a></li>
+          <li><a href="/index.html#reflections">التأملات</a></li>
+          <li><a href="/index.html#retreat">الرحلات</a></li>
+          <li><a href="/index.html#about">عن عائشـة رمضان</a></li>
+          <li><a href="/index.html#contact">تواصل معنا</a></li>
+        </ul>
+        <div class="mt-10">
+          <!-- <img
+            src="./assets/social-icons.png"
+            alt="social-icons"
+            class="w-2/3 mx-auto"
+          /> -->
+          <div class="flex gap-5 items-center justify-center">
+            <a href="#">
+              <img src="./assets/youtube.svg" alt="youtube" class="w-7" />
+            </a>
+            <a href="https://www.instagram.com/aiisharamadan/" target="_blank">
+              <img
+                src="./assets/instagram.svg"
+                alt="instagram"
+                class="w-7" /></a
+            ><a href="#">
+              <img src="./assets/facebook.svg" alt="facebook" class="w-7" />
+            </a>
+            <a href="#">
+              <img src="./assets/twitter.svg" alt="twitter" class="w-7" />
+            </a>
+            <a href="#">
+              <img src="./assets/mic.svg" alt="mic" class="w-6"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <!-- overlay -->
+      <div
+        id="overlay"
+        class="fixed left-0 top-0 w-full h-full z-40 bg-black opacity-30 overlay-hide md:hidden"
+      ></div>
+      <!-- header -->
+      <header class="w-full bg-[#f1fdfb] min-h-[64px] flex items-center px-4">
+        <div class="md:px-12 mx-auto w-full">
+          <div class="flex justify-between items-center">
+            <div class="hidden md:block w-[220px]">
+              <div class="flex gap-5 items-center">
+                <a href="#">
+                  <img src="./assets/youtube.svg" alt="youtube" class="w-6" />
+                </a>
+                <a
+                  href="https://www.instagram.com/aiisharamadan/"
+                  target="_blank"
+                >
+                  <img
+                    src="./assets/instagram.svg"
+                    alt="instagram"
+                    class="w-6" /></a
+                ><a href="#">
+                  <img src="./assets/facebook.svg" alt="facebook" class="w-6" />
+                </a>
+                <a href="#">
+                  <img src="./assets/twitter.svg" alt="twitter" class="w-6" />
+                </a>
+                <a href="#">
+                  <img src="./assets/mic.svg" alt="mic" class="w-5"
+                /></a>
+              </div>
+            </div>
+            <div id="menu" class="cursor-pointer block md:hidden">
+              <img src="./assets/menu.svg" alt="menu" class="w-6" />
+            </div>
+            <a class="block" href="/index.html">
+              <img src="./assets/logo.png" alt="cart" class="w-14 md:w-20" />
+            </a>
+            <div class="flex items-center justify-between gap-5 relative">
+              <button
+                id="langBtn"
+                class="flex bg-green items-center rounded-2xl px-3 p-1 justify-between cursor-pointer"
+              >
+                <p class="text-white text-sm ml-1 relative bottom-[3px]">
+                  عربي
+                </p>
+                <img
+                  id="langArrow"
+                  src="./assets/arrow-down.svg"
+                  alt="arrow-down"
+                  class="w-3 transition-all"
+                />
+              </button>
+              <div
+                id="langDropdown"
+                class="absolute z-50 bg-[#f1fdfb] right-0 bottom-[-110px] ltr:right-auto ltr:left-0 rounded-lg w-32 hidden transition-all border-2 border-green"
+              >
+                <ul class="py-2 text-sm text-green">
+                  <li class="langLi">
+                    <a href="#" class="block px-3 py-2 hover:bg-[#b3dad5]"
+                      >عربي</a
+                    >
+                  </li>
+                  <li class="langLi">
+                    <a href="#" class="block px-3 py-2 hover:bg-[#b3dad5]"
+                      >English</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="rounded-2xl relative">
+                <button id="searchBtn" class="w-full flex items-center">
+                  <img src="./assets/search.svg" alt="search" class="w-5" />
+                  <p class="text-base mr-1 relative bottom-[1px] text-green">
+                    البحث
+                  </p>
+                </button>
+                <div
+                  id="searchDropdown"
+                  class="absolute z-50 left-0 ltr:left-auto ltr:right-0 rounded-lg w-48 transition-all shadow-lg border-2 border-green bottom-[-53px] hidden"
+                >
+                  <div
+                    class="bg-[#f1fdfb] w-full h-full rounded-lg flex items-center px-2 py-1"
+                  >
+                    <input
+                      type="text"
+                      class="bg-[#f1fdfb] outline-none text-gray-normal text-sm"
+                      placeholder="بحث"
+                    />
+                    <button class="w-5 mx-auto" id="searchItemBtn">
+                      <img src="./assets/search.svg" class="w-full mx-auto" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex items-center rounded-2xl relative cursor-pointer"
+              >
+                <a class="w-full" href="/cart.html">
+                  <img src="./assets/cart.png" alt="cart" class="w-6" />
+                  <span
+                    class="absolute bg-[#ffd760] rounded-full w-[18px] h-[18px] text-xs font-bold top-[-5px] right-[-7px] flex justify-center"
+                    >3</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- hero -->
+      <main
+        id="home"
+        class="w-full min-h-[calc(100vh-80px)] relative flex flex-col px-4 overflow-hidden"
+      >
+        <div class="bg-parallax h-full w-full absolute left-0 top-0"></div>
+        <div class="absolute top-0 left-0 w-full h-full overlay z-10"></div>
+        <div class="mx-auto py-4 lg:py-8 relative z-20">
+          <ul
+            class="md:flex w-full items-center justify-center font-bold text-base md:text-[17px] lg:text-xl lg2:text-2xl hidden md:gap-5 lg2:gap-8"
+          >
+            <li class="link">
+              <a href="#home">الرئيسـية</a>
+            </li>
+            <li class="link"><a href="#gift">هديتي لك</a></li>
+            <li class="link">
+              <a href="#sessions">الجلسـات</a>
+            </li>
+            <li class="link">
+              <a href="#courses">الكورسـات</a>
+            </li>
+            <li class="link">
+              <a href="#reflections">التأملات</a>
+            </li>
+            <li class="link"><a href="#retreat">الرحلات</a></li>
+            <li class="link">
+              <a href="#about">عن عائشـة رمضان</a>
+            </li>
+            <li class="link">
+              <a href="#contact">تواصل معنا</a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="px-5 flex items-end justify-center lg:justify-between max-w-[1440px] relative z-20 mx-auto w-full flex-1"
+        >
+          <div class="w-fit leading-[74px] xs:leading-[110px] self-center">
+            <p class="font-semibold text-6xl xs:text-8xl">يبدأ</p>
+            <p class="font-semibold text-[84px] xs:text-[120px]">التغير</p>
+            <p class="font-semibold text-4xl xs:text-6xl">من</p>
+            <p class="font-bold text-[114px] xs:text-[150px]">
+              داخلك
+              <img
+                src="./assets/brush.png"
+                alt="brush"
+                class="w-full relative top-[-32px] z-[-1] right-3"
+              />
+            </p>
+          </div>
+
+          <div
+            class="relative bottom-0 hidden lg:block overflow-hidden w-fit h-fit"
+          >
+            <img
+              src="./assets/aiisha-1.png"
+              alt="aiisha"
+              class="w-full max-w-full"
+            />
+            <!-- <div
+              class="bg-[#efd1c1] rounded-full w-[600px] h-[600px] absolute left-0 top-[20px] z-[-1]"
+            ></div> -->
+          </div>
+        </div>
+      </main>
+      <!-- about -->
+      <section id="about" class="px-4 py-36 max-w-7xl mx-auto text-center">
+        <h1
+          class="font-bold text-3xl sm:text-4xl text-center leading-normal max-w-[730px] mx-auto"
+        >
+          عائشة رمضان، مدربة وعي ومعالجة متخصصة بالالعاب السيكولوجية
+        </h1>
+        <div class="my-6 sm:my-10">
+          <p
+            class="text-xl sm:text-2xl text-center leading-normal max-w-[930px] mx-auto"
+          >
+            محترفة وذات خبرة طويله ومتمرسة في طرق التشافي الذاتي عبر تقديم جلسات
+            <span class="font-bold"> علاجية مختلفة </span>
+            تعد من اقوي الالعاب السيكولوجيا المصممة بدقة على غرار:
+          </p>
+          <p
+            class="text-xl sm:text-2xl text-center leading-normal max-w-[930px] mx-auto font-bold"
+          >
+            جلسات علاج الطفلال داخلي، جلسات "ترانسيرفينغ" الواقع، جلسات التنويم
+            المغناطيسي وجلسات اكتشاف الغف والعلاج بالصوت
+          </p>
+        </div>
+        <button
+          type="button"
+          class="bg-green text-white py-3 px-4 rounded-full font-bold text-sm hover:bg-green-hover transition-all"
+        >
+          اضغط المزيد
+        </button>
+      </section>
+      <!-- mission -->
+      <section
+        id="mission"
+        class="w-full px-4 lg:px-10 py-20 sm:py-36 mx-auto text-center relative min-h-[60vh] flex flex-col"
+      >
+        <div
+          class="bg-parallax-mission absolute left-0 top-0 w-full h-full"
+        ></div>
+        <div
+          class="absolute top-0 left-0 overlay-mission z-10 w-full h-full"
+        ></div>
+        <div
+          class="flex gap-5 items-start justify-center lg:justify-between max-w-[1440px] relative z-20 mx-auto w-full flex-1"
+        >
+          <div class="w-fit text-right max-w-2xl flex flex-col gap-3">
+            <h3 class="text-[#517A74] font-bold text-3xl sm:text-6xl">هدفنا</h3>
+            <p class="text-[#517A74] text-3xl">
+              ‘’ كسر الحواجز لمساعدة العملاء في اكتشاف ذاتهم والاتصال بها,
+              ودعمهم في تحقيق النمو الشخصي، والوصول لشغفهم في الحياة.‘’
+            </p>
+          </div>
+          <div class="relative hidden lg:block w-fit">
+            <img
+              src="./assets/circles.png"
+              alt="circles"
+              class="w-[80%] max-w-full"
+            />
+            <img
+              src="./assets/bubbles.png"
+              alt="bubbles"
+              class="w-[80%] absolute top-[60px]"
+            />
+            <div
+              class="absolute lg:w-[150px] lg:h-[150px] lg:text-lg lg2:w-[200px] lg2:h-[200px] lg2:text-2xl xl:w-[250px] xl:h-[250px] font-bold xl:text-3xl text-[#375652] bg-[#69B4A8] rounded-full flex items-center justify-center top-[-70px] left-[90px]"
+            >
+              انت تصبح نسخة<br />أفضل <br />
+              من نفسك
+            </div>
+            <div
+              class="absolute lg:w-[120px] lg:h-[120px] lg:text-lg lg2:w-[170px] lg2:h-[170px] lg2:text-2xl xl:w-[220px] xl:h-[220px] xl:text-3xl font-bold text-[#375652] bg-[#70AAA2] rounded-full flex items-center justify-center top-[100px] right-[-30px]"
+            >
+              الوعي بالذات
+            </div>
+            <div
+              class="absolute lg:w-[90px] lg:h-[90px] lg:text-lg lg2:w-[140px] lg2:h-[140px] lg2:text-2xl xl:w-[190px] xl:h-[190px] xl:text-3xl font-bold text-[#375652] bg-[#B3DAD5] rounded-full flex items-center justify-center bottom-[0] left-[90px]"
+            >
+              التشافي
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- gift -->
+      <section
+        id="gift"
+        class="w-full px-4 py-16 sm:pb-40 mx-auto text-center relative h-full flex flex-col"
+      >
+        <div class="bg-parallax-gift w-full absolute left-0 top-0 h-full"></div>
+        <div
+          class="absolute top-0 left-0 w-full overlay-gift z-10 h-full"
+        ></div>
+        <div class="max-w-[1440px] relative z-20 mx-auto w-full flex-1">
+          <h3 class="text-[#000] font-bold text-3xl sm:text-6xl text-right">
+            ايد ب ايد
+          </h3>
+          <div
+            class="grid-system gap-10 md:gap-32 mt-20 md:mt-40 max-w-[1280px] mx-auto"
+          >
+            <div>
+              <div class="border-[5px] border-black p-10">
+                <h3 class="font-bold text-3xl custom-ellipsis-line">
+                  كورسات مجانية
+                </h3>
+                <p class="max-w-[200px] pt-5 custom-ellipsis">
+                  هنا نص قصير يشرح محتوى الجلسة وهدفه
+                </p>
+              </div>
+              <button
+                class="bg-[#e74141] text-white py-2 px-9 rounded-lg font-bold text-sm mt-5 hover:bg-[#cd3333] transition-all"
+              >
+                مجانا
+              </button>
+            </div>
+            <div>
+              <div class="border-[5px] border-black p-10">
+                <h3 class="font-bold text-3xl custom-ellipsis-line">
+                  تأملات مجانية
+                </h3>
+                <p class="max-w-[200px] pt-5 custom-ellipsis">
+                  هنا نص قصير يشرح محتوى الجلسة وهدفه
+                </p>
+              </div>
+              <button
+                class="bg-[#e74141] text-white py-2 px-9 rounded-lg font-bold text-sm mt-5 hover:bg-[#cd3333] transition-all"
+              >
+                مجانا
+              </button>
+            </div>
+            <div>
+              <div class="border-[5px] border-black p-10">
+                <h3 class="font-bold text-3xl custom-ellipsis-line">
+                  مقالات مجانية
+                </h3>
+                <p class="max-w-[200px] pt-5 custom-ellipsis">
+                  هنا نص قصير يشرح محتوى الجلسة وهدفه
+                </p>
+              </div>
+              <button
+                class="bg-[#e74141] text-white py-2 px-9 rounded-lg font-bold text-sm mt-5 hover:bg-[#cd3333] transition-all"
+              >
+                مجانا
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- sessions -->
+      <section
+        id="sessions"
+        class="w-full px-4 py-16 mx-auto text-center relative h-full flex flex-col"
+      >
+        <div
+          class="bg-parallax-sessions w-full absolute left-0 top-0 h-full"
+        ></div>
+        <div
+          class="absolute top-0 left-0 w-full overlay-sessions z-10 h-full"
+        ></div>
+        <div class="max-w-[1440px] relative z-20 mx-auto w-full flex-1">
+          <h3 class="text-[#000] font-bold text-3xl sm:text-6xl text-right">
+            الجلسات
+          </h3>
+          <div class="slide-container swiper">
+            <div class="slide-content">
+              <div
+                class="card-wrapper swiper-wrapper my-20 md:my-30 max-w-[1280px] mx-auto"
+              >
+                <div class="card swiper-slide">
+                  <div
+                    class="border-[5px] border-black py-10 px-2 max-w-[290px] mx-auto"
+                  >
+                    <h3 class="font-bold text-3xl custom-ellipsis h-20">
+                      جلسة العلاقات
+                    </h3>
+                    <p class="max-w-[200px] my-6 mx-auto h-12 custom-ellipsis">
+                      هنا نص قصير يشرح محتوى الجلسة وهدفها
+                    </p>
+                    <span class="w-full h-[1px] bg-black block"></span>
+                    <p
+                      class="max-w-[200px] my-6 mx-auto h-12 flex flex-col justify-center gap-2"
+                    >
+                      <span>1 ساعة</span>
+                      <span>$ 120</span>
+                    </p>
+                    <button
+                      class="bg-black text-white py-[10px] px-10 rounded-xl text-sm transition-all mt-12 font-[200]"
+                    >
+                      احجز الآن
+                    </button>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div
+                    class="border-[5px] border-black py-10 px-2 max-w-[290px] mx-auto"
+                  >
+                    <h3 class="font-bold text-3xl custom-ellipsis h-20">
+                      جلسة العلاقات
+                    </h3>
+                    <p class="max-w-[200px] my-6 mx-auto h-12 custom-ellipsis">
+                      هنا نص قصير يشرح محتوى الجلسة وهدفها
+                    </p>
+                    <span class="w-full h-[1px] bg-black block"></span>
+                    <p
+                      class="max-w-[200px] my-6 mx-auto h-12 flex flex-col justify-center gap-2"
+                    >
+                      <span>1 ساعة</span>
+                      <span>$ 120</span>
+                    </p>
+                    <button
+                      class="bg-black text-white py-[10px] px-10 rounded-xl text-sm transition-all mt-12 font-[200]"
+                    >
+                      احجز الآن
+                    </button>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div
+                    class="border-[5px] border-black py-10 px-2 max-w-[290px] mx-auto"
+                  >
+                    <h3 class="font-bold text-3xl custom-ellipsis h-20">
+                      جلسة العلاقات
+                    </h3>
+                    <p class="max-w-[200px] my-6 mx-auto h-12 custom-ellipsis">
+                      هنا نص قصير يشرح محتوى الجلسة وهدفها
+                    </p>
+                    <span class="w-full h-[1px] bg-black block"></span>
+                    <p
+                      class="max-w-[200px] my-6 mx-auto h-12 flex flex-col justify-center gap-2"
+                    >
+                      <span>1 ساعة</span>
+                      <span>$ 120</span>
+                    </p>
+                    <button
+                      class="bg-black text-white py-[10px] px-10 rounded-xl text-sm transition-all mt-12 font-[200]"
+                    >
+                      احجز الآن
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-button-next swiper-navBtn swiper-button-next-1"
+            ></div>
+            <div
+              class="swiper-button-prev swiper-navBtn swiper-button-prev-1"
+            ></div>
+            <!-- <div class="swiper-pagination"></div> -->
+          </div>
+          <button
+            class="bg-black text-white py-2 px-8 sm:py-3 sm:px-9 rounded-lg text-xl sm:text-2xl transition-all"
+          >
+            جلسات أكثر
+          </button>
+        </div>
+      </section>
+      <!-- courses -->
+      <section
+        id="courses"
+        class="w-full px-4 py-16 mx-auto text-center relative h-full flex flex-col"
+      >
+        <div
+          class="bg-parallax-courses w-full absolute left-0 top-0 h-full"
+        ></div>
+        <div
+          class="absolute top-0 left-0 w-full overlay-courses z-10 h-full"
+        ></div>
+        <div class="max-w-[1440px] relative z-20 mx-auto w-full flex-1">
+          <h3 class="text-[#000] font-bold text-3xl sm:text-6xl text-right">
+            الكورسات
+          </h3>
+          <div class="slide-container swiper">
+            <div class="slide-content-2">
+              <div
+                class="card-wrapper swiper-wrapper my-20 md:my-30 max-w-[1280px] mx-auto"
+              >
+                <div class="card swiper-slide">
+                  <div
+                    class="border-[5px] border-black py-10 px-2 max-w-[290px] mx-auto"
+                  >
+                    <h3 class="font-bold text-3xl custom-ellipsis h-20">
+                      رحلتك مع الانوثة
+                    </h3>
+                    <p class="max-w-[200px] m-6 mx-auto h-12 custom-ellipsis">
+                      هنا نص قصير يشرح محتوى الجلسة وهدفها
+                    </p>
+                    <span
+                      class="w-[90%] h-[2px] bg-[#bebebe] block mx-auto"
+                    ></span>
+                    <p
+                      class="max-w-[200px] mt-2 mb-7 mx-auto h-12 flex flex-col justify-center gap-2 font-bold text-[28px]"
+                    >
+                      $ 120
+                    </p>
+                    <button
+                      class="bg-black text-white py-[10px] px-10 rounded-xl text-sm transition-all mt-12 font-[200]"
+                    >
+                      احجز الآن
+                    </button>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div
+                    class="border-[5px] border-black py-10 px-2 max-w-[290px] mx-auto"
+                  >
+                    <h3 class="font-bold text-3xl custom-ellipsis h-20">
+                      جــــذور
+                    </h3>
+                    <p class="max-w-[200px] m-6 mx-auto h-12 custom-ellipsis">
+                      هنا نص قصير يشرح محتوى الجلسة وهدفها
+                    </p>
+                    <span
+                      class="w-[90%] h-[2px] bg-[#bebebe] block mx-auto"
+                    ></span>
+                    <p
+                      class="max-w-[200px] mt-2 mb-7 mx-auto h-12 flex flex-col justify-center gap-2 font-bold text-[28px]"
+                    >
+                      $ 120
+                    </p>
+                    <button
+                      class="bg-black text-white py-[10px] px-10 rounded-xl text-sm transition-all mt-12 font-[200]"
+                    >
+                      احجز الآن
+                    </button>
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div
+                    class="border-[5px] border-black py-10 px-2 max-w-[290px] mx-auto"
+                  >
+                    <h3 class="font-bold text-3xl custom-ellipsis h-20">
+                      جوھر العلاقات وخفایاھا
+                    </h3>
+                    <p class="max-w-[200px] m-6 mx-auto h-12 custom-ellipsis">
+                      هنا نص قصير يشرح محتوى الجلسة وهدفها
+                    </p>
+                    <span
+                      class="w-[90%] h-[2px] bg-[#bebebe] block mx-auto"
+                    ></span>
+                    <p
+                      class="max-w-[200px] mt-2 mb-7 mx-auto h-12 flex flex-col justify-center gap-2 font-bold text-[28px]"
+                    >
+                      $ 120
+                    </p>
+                    <button
+                      class="bg-black text-white py-[10px] px-10 rounded-xl text-sm transition-all mt-12 font-[200]"
+                    >
+                      احجز الآن
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-button-next swiper-navBtn swiper-button-next-2"
+            ></div>
+            <div
+              class="swiper-button-prev swiper-navBtn swiper-button-prev-2"
+            ></div>
+            <!-- <div class="swiper-pagination"></div> -->
+          </div>
+          <button
+            class="bg-black text-white py-2 px-8 sm:py-3 sm:px-9 rounded-lg text-xl sm:text-2xl transition-all"
+          >
+            جلسات أكثر
+          </button>
+        </div>
+      </section>
+      <!-- reflections -->
+      <section
+        id="reflections"
+        class="w-full px-4 py-16 mx-auto text-center relative h-full flex flex-col"
+      >
+        <div
+          class="bg-parallax-reflections w-full absolute left-0 top-0 h-full"
+        ></div>
+        <div class="max-w-[1440px] relative z-20 mx-auto w-full flex-1">
+          <h3 class="text-[#517A74] font-bold text-3xl sm:text-6xl text-right">
+            تأملات
+          </h3>
+          <div class="slide-container swiper">
+            <div class="slide-content-3">
+              <div
+                class="card-wrapper swiper-wrapper my-20 md:my-30 max-w-[1280px] mx-auto"
+              >
+                <div class="card swiper-slide">
+                  <div
+                    class="p-4 mx-auto w-[150px] h-[150px] text-lg lg2:w-[200px] lg2:h-[200px] lg2:text-2xl xl:w-[250px] xl:h-[250px] font-bold xl:text-3xl text-[#375652] bg-[#68b4a8] rounded-full flex items-center justify-center"
+                  >
+                    تأملات نشـــــــــــوة الثراء
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div
+                    class="p-4 mx-auto w-[150px] h-[150px] text-lg lg2:w-[200px] lg2:h-[200px] lg2:text-2xl xl:w-[250px] xl:h-[250px] font-bold xl:text-3xl text-[#375652] bg-[#82c4ba] rounded-full flex items-center justify-center"
+                  >
+                    تأملات البودكاست
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div
+                    class="p-4 mx-auto w-[150px] h-[150px] text-lg lg2:w-[200px] lg2:h-[200px] lg2:text-2xl xl:w-[250px] xl:h-[250px] font-bold xl:text-3xl text-[#375652] bg-[#9ed3cb] rounded-full flex items-center justify-center"
+                  >
+                    تأملات كـــــــورس <br />آخر
+                  </div>
+                </div>
+                <div class="card swiper-slide">
+                  <div
+                    class="p-4 mx-auto w-[150px] h-[150px] text-lg lg2:w-[200px] lg2:h-[200px] lg2:text-2xl xl:w-[250px] xl:h-[250px] font-bold xl:text-3xl text-[#375652] bg-[#cae9e4] rounded-full flex items-center justify-center"
+                  >
+                    تأملات الانستاقرام
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-button-next swiper-navBtn swiper-button-next-3"
+            ></div>
+            <div
+              class="swiper-button-prev swiper-navBtn swiper-button-prev-3"
+            ></div>
+            <!-- <div class="swiper-pagination"></div> -->
+          </div>
+          <button
+            class="bg-[#517A74] text-white py-2 px-8 sm:py-3 sm:px-9 rounded-lg text-xl sm:text-2xl transition-all"
+          >
+            تأملات اكثر
+          </button>
+        </div>
+      </section>
+      <!-- retreat -->
+      <section
+        id="retreat"
+        class="w-full px-4 py-16 mx-auto text-center relative h-full flex flex-col"
+      >
+        <div
+          class="bg-parallax-retreat w-full absolute left-0 top-0 h-full"
+        ></div>
+        <div
+          class="absolute top-0 left-0 w-full overlay-retreat z-10 h-full"
+        ></div>
+        <div class="max-w-[1440px] relative z-20 mx-auto w-full flex-1">
+          <h3 class="text-[#000] font-bold text-3xl sm:text-6xl text-right">
+            الرحلات علاجية
+          </h3>
+          <div class="slide-container swiper">
+            <div class="slide-content-4">
+              <div
+                class="card-wrapper swiper-wrapper my-20 md:my-30 max-w-[1280px] mx-auto"
+              >
+                <!-- slider card -->
+                <div class="card swiper-slide">
+                  <div class="text-center">
+                    <div class="flex items-center flex-col gap-4">
+                      <h3 class="text-[#000] font-bold text-3xl sm:text-6xl">
+                        رحلة بالي العلاجية
+                      </h3>
+                      <p class="text-[#000] font-bold text-2xl sm:text-5xl">
+                        للنساء والرجال
+                      </p>
+                    </div>
+                    <div class="mt-8 sm:mt-16 flex items-center flex-col gap-8">
+                      <p class="text-[#000] font-bold text-3xl sm:text-6xl">
+                        Bali, Indonesia
+                      </p>
+                      <p class="text-[#000] font-bold text-3xl sm:text-6xl">
+                        <span> 09.Mai </span> -
+                        <span>17.Mai2023</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-button-next swiper-navBtn swiper-button-next-4"
+            ></div>
+            <div
+              class="swiper-button-prev swiper-navBtn swiper-button-prev-4"
+            ></div>
+            <!-- <div class="swiper-pagination"></div> -->
+          </div>
+        </div>
+      </section>
+      <!-- sucess -->
+      <section
+        id="sucess"
+        class="bg-[#bde0dc] text-[#517a74] w-full px-4 py-16 mx-auto text-center relative h-full flex flex-col bg-gradient-to-r"
+      >
+        <div class="max-w-[1440px] relative z-20 mx-auto w-full flex-1">
+          <h3 class="text-[#517a74] font-bold text-3xl sm:text-6xl text-right">
+            قصص نجاح
+          </h3>
+          <div class="slide-container swiper">
+            <div class="slide-content-5">
+              <div
+                class="card-wrapper swiper-wrapper my-20 md:my-30 max-w-[1280px] mx-auto"
+              >
+                <!-- slider card -->
+                <div class="card swiper-slide">
+                  <div
+                    class="w-[70%] sm:w-fit border-2 border-solid border-[#517a74] py-6 px-4 sm:px-24 mx-auto flex items-center flex-col gap-10"
+                  >
+                    <img src="./assets/quote.svg" alt="quote" class="w-16" />
+                    <p class="text-xl sm:text-2xl font-semibold max-w-xl">
+                      هنا يكون نص عن قصة نجاح احدهم مع بعض التفاصيل وغيرها من
+                      التحفيزات الحقيقية
+                    </p>
+                    <h4 class="text-2xl sm:text-3xl font-semibold">
+                      اسم صاحب القصة
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="swiper-button-next swiper-navBtn swiper-button-next-5"
+            ></div>
+            <div
+              class="swiper-button-prev swiper-navBtn swiper-button-prev-5"
+            ></div>
+            <!-- <div class="swiper-pagination"></div> -->
+          </div>
+        </div>
+      </section>
+      <!-- footer -->
+      <footer
+        class="w-full px-4 py-6 mx-auto text-center relative h-full flex flex-col bg-[#517a74] text-white"
+      >
+        <div class="max-w-[1440px] mx-auto w-full">
+          <ul
+            id="list"
+            class="flex flex-wrap w-full items-center gap-4 sm:gap-7 justify-center font-bold text-white py-4 text-sm"
+          >
+            <li><a href="/index.html#home">الرئيسـية</a></li>
+            <li><a href="/index.html#gift">هديتي لك</a></li>
+            <li><a href="/index.html#sessions">الجلسـات</a></li>
+            <li><a href="/index.html#courses">الكورسـات</a></li>
+            <li><a href="/index.html#reflections">التأملات</a></li>
+            <li><a href="/index.html#retreat">الرحلات</a></li>
+            <li><a href="/index.html#about">عن عائشـة رمضان</a></li>
+            <li><a href="/index.html#contact">تواصل معنا</a></li>
+          </ul>
+          <div
+            class="flex flex-wrap items-center gap-3 sm:gap-6 justify-between pt-6 pb-10"
+          >
+            <div class="text-white text-sm flex flex-col flex-1 items-center">
+              <p class="font-bold">عربي</p>
+              <p class="uppercase font-[200] mt-1">English</p>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center text-sm gap-2 flex-1"
+            >
+              <img
+                src="./assets/logo.png"
+                alt="cart"
+                class="w-20 sm:w-24 mx-auto"
+              />
+              <a href="tel:00971542466474" class="text-white text-sm font-[200]"
+                >00971542466474</a
+              >
+              <a
+                href="mailto:bookings@aiisha.com"
+                class="text-white text-sm font-[200]"
+                >bookings@aiisha.com</a
+              >
+            </div>
+            <div class="flex flex-col gap-2 items-center flex-1">
+              <p class="text-white font-semibold text-sm self-center">
+                تابعونا
+              </p>
+              <!-- <img
+                src="./assets/social-icons.png"
+                alt="social-icons"
+                class="w-56"
+              /> -->
+              <div class="flex gap-2 sm:gap-5 items-center justify-center">
+                <a href="#">
+                  <img
+                    src="./assets/youtube-white.svg"
+                    alt="youtube"
+                    class="w-6"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/aiisharamadan/"
+                  target="_blank"
+                >
+                  <img
+                    src="./assets/instagram-white.svg"
+                    alt="instagram"
+                    class="w-6" /></a
+                ><a href="#">
+                  <img
+                    src="./assets/facebook-white.svg"
+                    alt="facebook"
+                    class="w-6"
+                  />
+                </a>
+                <a href="#">
+                  <img
+                    src="./assets/twitter-white.svg"
+                    alt="twitter"
+                    class="w-6"
+                  />
+                </a>
+                <a href="#">
+                  <img src="./assets/mic-white.svg" alt="mic" class="w-5"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <p class="text-white text-sm font-[200]">
+            2023 جميع الحقوق © محفوظة لدى شركه
+            <a
+              href="https://www.itlegend.net/"
+              target="_blank"
+              class="font-semibold mx-1"
+              >IT LEGEND</a
+            >
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

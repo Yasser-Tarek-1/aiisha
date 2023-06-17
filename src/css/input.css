@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+p {
+  font-family: "Cairo", sans-serif !important;
+}
+
+/* hero */
+.bg-parallax {
+  background-image: url("../assets/main.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  opacity: 0.19;
+}
+
+.overlay {
+  background-color: #4bb6a8;
+  background-blend-mode: normal;
+  opacity: 0.4;
+}
+
+/* menu */
+.hide {
+  right: -100%;
+  transition: all 0.5s ease;
+}
+
+.show {
+  right: 0;
+  transition: all 0.5s ease;
+}
+
+.overlay-hide {
+  display: none;
+}
+
+.overlay-show {
+  display: block;
+}
+
+/* mission */
+.bg-parallax-mission {
+  background-image: url("../assets/mission.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  opacity: 43%;
+}
+
+.overlay-mission {
+  background-color: #f5eae3;
+  background-blend-mode: normal;
+  opacity: 0.8;
+}
+
+/* gift */
+.bg-parallax-gift {
+  background-image: url("../assets/gift.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: normal;
+  opacity: 14%;
+}
+
+.overlay-gift {
+  background-color: #fff;
+  opacity: 14%;
+}
+
+.grid-system {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
+  align-items: center;
+}
+
+/* sessions */
+.bg-parallax-sessions {
+  background-image: url("../assets/sessions.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: normal;
+  opacity: 46%;
+}
+
+.overlay-sessions {
+  background-color: #b4ddda;
+  background-blend-mode: hard-light;
+  opacity: 46%;
+}
+
+.card:hover {
+  box-shadow: none !important;
+}
+
+/* courses */
+#courses .swiper-navBtn {
+  color: #256f65 !important;
+}
+
+.bg-parallax-courses {
+  background-image: url("../assets/courses.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: normal;
+  opacity: 46%;
+}
+
+.overlay-courses {
+  background-color: #fff;
+  opacity: 76%;
+}
+
+/* reflections */
+/* #reflections .swiper-navBtn {
+  color: #256f65 !important;
+} */
+
+.bg-parallax-reflections {
+  background-image: url("../assets/reflections.png");
+  /* background-attachment: fixed; */
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: normal;
+  background-color: #f5eae3;
+}
+
+@media (max-width: 639px) {
+  .bg-parallax-reflections {
+    background-image: none !important;
+    background-color: #f5eae3 !important;
+  }
+}
+
+/* retreat */
+.bg-parallax-retreat {
+  background-image: url("../assets/retreat.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: normal;
+  opacity: 75%;
+}
+
+/* sucess */
+#sucess .swiper-navBtn {
+  color: #517a74 !important;
+}
+
+/* svg color */
+.svg-white {
+  filter: invert(100%) sepia(0%) saturate(19%) hue-rotate(293deg)
+    brightness(104%) contrast(104%);
+}
+
+/* links */
+.link {
+  position: relative;
+  padding: 4px 0;
+  overflow: hidden;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  left: 100%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffd760;
+}
+
+.link:hover::before {
+  left: 0;
+  transition: 0.4s all;
+}
+
+/* slider */
+.slide-container {
+  max-width: 1280px;
+  width: 100%;
+  padding: 40px 0;
+}
+.slide-content {
+  margin: 0 60px;
+  /* padding: 0 25px; */
+  overflow: hidden;
+  /* border-radius: 25px; */
+}
+
+.card {
+  /* width: 330px !important; */
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.swiper-navBtn {
+  color: #000 !important;
+  transition: color 0.3s ease;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 35px;
+}
+.swiper-button-next {
+  right: 0;
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-pagination-bullet {
+  background-color: #000;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background-color: #000;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content {
+    margin: 0 50px;
+  }
+  .swiper-navBtn {
+    /* display: none; */
+  }
+}
+
+/* ellipsis text */
+.custom-ellipsis,
+.custom-ellipsis-line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+.custom-ellipsis {
+  -webkit-line-clamp: 2;
+}
+.custom-ellipsis-line {
+  -webkit-line-clamp: 1;
+}
+
+.card:hover {
+  box-shadow: rgb(240, 242, 243) 4px 5px 10px 8px;
+}
+
+/* register page */
+.iti.iti--allow-dropdown.iti--show-flags {
+  width: 100% !important;
+}
+.iti__arrow {
+  margin-right: 6px !important;
+}
+
+/* Courses */
+.active {
+  background: #256f65;
+  color: white;
+}
+
+/* Courses Details */
+
+/* cart */
+.svg-green {
+  filter: invert(35%) sepia(9%) saturate(2989%) hue-rotate(122deg)
+    brightness(94%) contrast(80%);
+}
+/* profile */
+/* .li-group-profile:hover img {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(41deg) brightness(101%)
+    contrast(101%);
+} */
+
+.profile {
+  background-color: rgb(241, 253, 251);
+  background-color: linear-gradient(
+    90deg,
+    rgba(241, 253, 251, 1) 0%,
+    rgba(179, 218, 213, 1) 0%
+  );
+}
+
+.profile-active {
+  background-color: #47afa152;
+  border-left: #256f65 2px solid;
+}
+
+.tabs-active {
+  border-bottom: #256f65 2px solid;
+}
+
+/* aside */
+.aside-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+@media (max-width: 767px) {
+  .aside-grid {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+::selection {
+  color: white;
+  background: #256f65;
+}
